@@ -1,6 +1,11 @@
 package com.codetests;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -68,10 +73,25 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void printEqual(int one, int two, int three) {
+        if (one < 0 || two < 0 || three < 0)
+            System.out.println("Invalid Value");
+        else if (one == two && two == three)
+            System.out.println("All numbers are equal");
+        else if (one != two && one != three && two != three)
+            System.out.println("All numbers are different");
+        else
+            System.out.println("Neither all are equal or different");
+    }
 
-        printYearsAndDays(525600);
-        printYearsAndDays(1051200);
-        printYearsAndDays(561600);
+    public static void main(String[] args) {
+        double discount;
+        int qty = Integer.parseInt("75");
+
+        discount = (qty >= 90) ? 0.5 : (qty > 80) ? 0.2 : 0;
+
+
+
+        System.out.println(discount);
     }
 }

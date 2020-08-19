@@ -84,14 +84,36 @@ public class Main {
             System.out.println("Neither all are equal or different");
     }
 
+    public static int missingInteger(int[] A){
+        List<Integer> uniqueElements = new ArrayList<>();
+        int result = 0;
+
+        Arrays.sort(A);
+
+        for(int a : A){
+            if(uniqueElements.contains(a))
+                continue;
+            else{
+                uniqueElements.add(a);
+            }
+        }
+
+        uniqueElements.removeIf(x -> x <= 0);
+
+        if(uniqueElements.isEmpty())
+            return 1;
+
+        for(int i = 1; i <= 100_000_000; i++){
+            if(!uniqueElements.contains(i)){
+                result = i;
+                break;
+            }
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
-        double discount;
-        int qty = Integer.parseInt("75");
-
-        discount = (qty >= 90) ? 0.5 : (qty > 80) ? 0.2 : 0;
-
-
-
-        System.out.println(discount);
+        System.out.println(missingInteger(new int[]{-1, -2, -3, 1, 3, 6, 4, 1, 2, 0, 9, 5, 100}));
     }
 }

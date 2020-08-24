@@ -31,13 +31,32 @@ public class Solution {
         return result;
     }
 
+    static int countingValleys(int n, String s) {
+        int numberOfValleys = 0;
+        int seaLevel = 0;
+
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == 'U')
+                seaLevel++;
+            else if(s.charAt(i) == 'D')
+                seaLevel--;
+
+            if(seaLevel == 0 && s.charAt(i) == 'U')
+                numberOfValleys++;
+        }
+
+        return numberOfValleys;
+    }
+
     public static void main(String[] args) throws IOException {
-        int n = 20;
+        //Sock Merchant
+//        int n = 20;
+//        int[] ar = {4,5,5,5,6,6,4,1,4,4,3,6,6,3,6,1,4,5,5,5};
+//        int sockPairs = sockMerchant(n, ar);
+//        System.out.println(sockPairs);
 
-        int[] ar = {4,5,5,5,6,6,4,1,4,4,3,6,6,3,6,1,4,5,5,5};
-
-        int sockPairs = sockMerchant(n, ar);
-        System.out.println(sockPairs);
+        //Counting Valleys
+        System.out.println(countingValleys(12, "DDUUDDUDUUUD"));
     }
 }
 
